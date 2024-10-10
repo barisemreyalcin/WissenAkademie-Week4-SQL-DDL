@@ -13,14 +13,14 @@ Create Database CreateSampleDB
 On Primary
 (
 	Name = "CreateSampleDB_1",
-	FileName = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\CreateSampleDB_1.mdf' , -- N unicode için
+	FileName = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\CreateSampleDB_1.mdf' , -- N unicode iÃ§in
 	Size = 64MB,
 	FILEGROWTH = 32MB,
 	MAXSIZE = UNLIMITED
 ),
 (
 	Name = "CreateSampleDB_2",
-	FileName = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\CreateSampleDB_2.ndf' , -- N unicode için
+	FileName = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\CreateSampleDB_2.ndf' , -- N unicode iÃ§in
 	Size = 64MB,
 	FILEGROWTH = 32MB,
 	MAXSIZE = UNLIMITED
@@ -28,14 +28,14 @@ On Primary
 LOG ON
 (
 	Name = "CreateSampleDB_log_1",
-	FileName = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\CreateSampleDB_log_1.ldf' , -- N unicode için
+	FileName = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\CreateSampleDB_log_1.ldf' , -- N unicode iÃ§in
 	Size = 16MB,
 	FILEGROWTH = 16MB,
 	MAXSIZE = UNLIMITED
 ),
 (
 	Name = "CreateSampleDB_log_2",
-	FileName = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\CreateSampleDB_log_2.ldf' , -- N unicode için
+	FileName = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\CreateSampleDB_log_2.ldf' , -- N unicode iÃ§in
 	Size = 16MB,
 	FILEGROWTH = 16MB,
 	MAXSIZE = UNLIMITED
@@ -69,7 +69,7 @@ Create Table Product
 	[Description] nvarchar(500), -- Default NULL olur
 	Price decimal(18, 2) NOT NULL,
 	[State] bit NOT NULL Default(1),
-	Primary Key(ProductID) -- Virgül koyup diðer columnlarý ekleyebilirsin
+	Primary Key(ProductID) -- VirgÃ¼l koyup diÃ°er columnlarÃ½ ekleyebilirsin
 )
 
 Create Table Category
@@ -103,13 +103,13 @@ Create Table Supplier_3
 	Constraint UQ_SupplierID UNIQUE(SupplierID), -- 3rd way (naming bana ait)
 )
 
-truncate table [dbo].[Student] -- Verinin hepsini siler, Id yeniden 1'den baþlar
+truncate table [dbo].[Student] -- Verinin hepsini siler, Id yeniden 1'den baÃ¾lar
 
 -- New Column ekleme
 ALTER TABLE [dbo].[Person]
 ADD Email nvarchar(100) NOT NULL
 
--- Column'un datatype'ýný deðiþtirme
+-- Column'un datatype'Ã½nÃ½ deÃ°iÃ¾tirme
 ALTER TABLE [dbo].[Person]
 ALTER COLUMN Email nvarchar(200) NULL
 
@@ -117,7 +117,7 @@ ALTER COLUMN Email nvarchar(200) NULL
 ALTER TABLE [dbo].[Person]
 DROP COLUMN Email 
 
--- Sonrada PK ekleme (Create edilmiþ table fakat PK eklemeyi unuttuk)
+-- Sonrada PK ekleme (Create edilmiÃ¾ table fakat PK eklemeyi unuttuk)
 ALTER TABLE [dbo].[Person]
 ADD PRIMARY KEY(PersonID)
 
@@ -125,13 +125,13 @@ ADD PRIMARY KEY(PersonID)
 ALTER TABLE [dbo].[Person]
 DROP CONSTRAINT [PK__Person__AA2FFB85AF49F272]
 
--- Kendim isim vermek istediðim bir PK eklemek için
+-- Kendim isim vermek istediÃ°im bir PK eklemek iÃ§in
 ALTER TABLE [dbo].[Person]
 ADD CONSTRAINT PK_Person PRIMARY KEY(PersonID)
 
 -- Check Constraint
 ALTER TABLE [dbo].[Student]
-ADD CONSTRAINT CK_Age CHECK(Age > 0 AND Age < 120) -- Koþulu deðiþtirmek için ya silip yeniden oluþturacaksýn ya da Designer'den yapacaksýn
+ADD CONSTRAINT CK_Age CHECK(Age > 0 AND Age < 120) -- KoÃ¾ulu deÃ°iÃ¾tirmek iÃ§in ya silip yeniden oluÃ¾turacaksÃ½n ya da Designer'den yapacaksÃ½n
 
 -- Table silmek:
 DROP TABLE [dbo].[Person]
